@@ -27,4 +27,6 @@
 }
 .forecast_text{
     margin:5px;
+    display: block;
+    min-height: 3rem;
 }
