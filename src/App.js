@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import SearchPage from './SearchPage';
+import MainPage from './MainPage';
+import './MediaQueries.css';
+import React, { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const [searchValue,setSearchValue] = useState("");
+
+  const handleCallback = childData => {
+    setSearchValue(childData)
+  }
+
+  if( searchValue === "") {
+    return (
+      <div className="App">
+        <SearchPage parentCallback={handleCallback} />
+        </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        <MainPage results={searchValue} />
+      </div>
+    );
+  }
+
 }
 
 export default App;

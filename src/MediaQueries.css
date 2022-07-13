@@ -1,0 +1,114 @@
+@media only screen and (max-width: 1150px) {
+    .main_container{
+        width: 70%;
+    }
+    .container{
+        width: 70%;
+    }
+    .weather_today_container{
+        width: 70%;
+    }
+    .forecastday{
+        margin: 0 10px;
+        width: 160px;
+    }
+
+}
+
+@media only screen and (max-width: 770px){
+    .main_container{
+        width: 85%;
+    }
+    .container{
+        width: 85%;
+    }
+    .location{
+        font-size: 20px;
+    }
+    .weather_today_container{
+        width: 80%;
+    }
+    .text_today_today {
+        font-size: 22px;
+    }
+    .logo_today{
+        height: 120px;
+    }
+    .temp{
+        font-size:44px;
+    }
+    .text_today{
+        font-size: 20px;
+    }
+
+    .forecastday{
+        margin: 0 5px;
+        width: 150px;
+        font-size: 16px;
+        padding: 30px 0px;
+    }
+    .forecastday > img {
+        height:70px;
+    }
+    .max_temp{
+        font-size: 18px;
+    }
+    .min_temp{
+        font-size:16px;
+    }
+}
+    @media only screen and (max-width: 570px){
+        .main_container{
+            width: 100%;
+            min-height:100vh;
+            margin:0;
+            border-radius: 0;
+        }
+        .search_input_main > input {
+            font-size: 14px;
+        }
+        .container{
+            width:100%;
+            height:100%;
+            margin:0;
+            border-radius: 0;
+        }
+        .location{
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        .weather_today_container{
+            width: 70%;
+            padding: 10px;
+        }
+        .text_today_today {
+            font-size: 15px;
+        }
+        .logo_today{
+            height: 60px;
+        }
+        .temp{
+            font-size:22px;
+        }
+        .text_today{
+            font-size: 15px;
+        }
+        .forecast{
+            margin-top:50px;
+        }
+        .forecastday{
+            margin: 0 5px;
+            width: 85px;
+            font-size: 14px;
+            padding: 10px 0px;
+        }
+        .forecastday > img {
+            height:40px;
+        }
+        .max_temp{
+            font-size: 16px;
+        }
+        .min_temp{
+            font-size:14px;
+        }
+    }
