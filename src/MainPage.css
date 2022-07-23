@@ -62,7 +62,7 @@
 .search_input_main > input {
     border:none;
     background-color: transparent;
-    outline-width: 0;
+    outline: none;
     font-size: 17px;
 }
 .search_input_main > .MuiSvgIcon-root{
