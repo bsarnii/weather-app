@@ -39,7 +39,6 @@ function SearchPage({parentCallback}) {
                     placeholder="Enter here"
                     />
                 </div>
-                <br />
                 <button 
                 onClick={() => setSearch(query)}
                 className='search_button'
