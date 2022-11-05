@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 function App() {
 const [searchValue,setSearchValue] = useState("");
 
+
   const handleCallback = childData => {
     setSearchValue(childData)
   }

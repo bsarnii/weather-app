@@ -56,8 +56,16 @@
     .min_temp{
         font-size:16px;
     }
+    /* Search Page */
+    .fog{
+        object-fit: cover;
+    }
+
+    .citycard{
+        margin: 0 5px;
+    }
 }
-    @media only screen and (max-width: 570px){
+    @media only screen and (max-width: 620px){
         .main_container{
             width: 100%;
             min-height:100vh;
@@ -110,5 +118,38 @@
         }
         .min_temp{
             font-size:14px;
+        }
+        /*Search Page */
+        .container > h1{
+            margin: 25px;
+            font-size: 36px;
+        }
+        .search_input > input, .search_button, .city_name, .citycard, .citycard_temp {
+            font-size: 16px;
+        }
+        .search_input > input{
+            width: 100%;
+        }
+        .citycard_container{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            width: 95%;
+        }
+        .citycard{
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width:100%;
+            margin: 5px 0;
+            padding: 0;
+        }
+        .citycard > img {
+            width: 50px;
+            height:50px;
+        }
+        .citycard_text{
+            min-width: 92px;
         }
     }
