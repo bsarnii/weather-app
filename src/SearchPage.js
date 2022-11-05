@@ -62,7 +62,7 @@ function SearchPage({parentCallback}) {
 
   return (
     <div className='SearchPage'>
-        <img className="fog" src="background.png" alt="fog1.png"/>
+        <img className="fog" src="background.png" alt="fog"/>
         <div className='container'>
             <h1>Weather app</h1>
               <form onSubmit={e => e.preventDefault()}>

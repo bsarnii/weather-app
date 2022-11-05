@@ -23,7 +23,7 @@
         width: 85%;
     }
     .location{
-        font-size: 20px;
+        font-size: 22px;
     }
     .weather_today_container{
         width: 80%;
@@ -50,11 +50,8 @@
     .forecastday > img {
         height:70px;
     }
-    .max_temp{
+    .forecast_temp{
         font-size: 18px;
-    }
-    .min_temp{
-        font-size:16px;
     }
     /* Search Page */
     .fog{
@@ -69,11 +66,11 @@
         .main_container{
             width: 100%;
             min-height:100vh;
-            margin:0;
             border-radius: 0;
         }
         .search_input_main > input {
-            font-size: 14px;
+            font-size: 16px;
+            width: 100%;
         }
         .container{
             width:100%;
@@ -82,7 +79,6 @@
             border-radius: 0;
         }
         .location{
-            font-size: 15px;
             margin-bottom: 10px;
         }
         .weather_today_container{
@@ -90,7 +86,7 @@
             padding: 10px;
         }
         .text_today_today {
-            font-size: 15px;
+            font-size: 16px;
         }
         .logo_today{
             height: 60px;
@@ -99,25 +95,37 @@
             font-size:22px;
         }
         .text_today{
-            font-size: 15px;
-        }
-        .forecast{
-            margin-top:50px;
-        }
-        .forecastday{
-            margin: 0 5px;
-            width: 85px;
-            font-size: 14px;
-            padding: 10px 0px;
-        }
-        .forecastday > img {
-            height:40px;
-        }
-        .max_temp{
             font-size: 16px;
         }
-        .min_temp{
-            font-size:14px;
+        .forecast{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            width: 95%;
+        }
+        .forecastday{
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width:100%;
+            margin: 5px 0;
+            padding: 0;
+        }
+        .date{
+            min-width: 80px;
+        }
+        .forecastday > img {
+            height:50px;
+        }
+        .forecast_temp{
+            font-size: 16px;
+        }
+        .forecast_text{
+            margin: 0;
+            font-size: 16px;
+            min-width: 92px;
+            max-width: 160px;
         }
         /*Search Page */
         .container > h1{
@@ -150,6 +158,8 @@
             height:50px;
         }
         .citycard_text{
+            margin: 0;
             min-width: 92px;
+            max-width: 160px;
         }
     }

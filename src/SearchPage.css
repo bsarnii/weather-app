@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     /*background: #7cb4e9;*/
-    background: #577ea3;
+    background: linear-gradient(#75a1ca,#35536e);
     min-height:100vh;
 }
 .fog {

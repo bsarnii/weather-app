@@ -23,6 +23,7 @@ useEffect(() => {
    },[search]);
   return (
     <div className='MainPage'>
+      <img className="fog" src="background.png" alt="fog"/>
         <div className='main_container'>
           <form onSubmit={e => e.preventDefault()}>
             <div className='search_input_main'>
@@ -40,7 +41,7 @@ useEffect(() => {
             </div>
           </form>
 
-          <h2 className='location'>{result.location.name}, {result.location.region}, {result.location.country}</h2>
+          <h2 className='location'>{result.location.name}, {result.location.country}</h2>
           <div className='weather_today_container'>
               <h2 className='text_today_today'>Today</h2>
               <div className='logo_with_temp'>
