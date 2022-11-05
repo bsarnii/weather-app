@@ -30,7 +30,9 @@ useEffect(() => {
                 <Search />
                 <input 
                 onChange={e => setQuery(e.target.value)}
-                type="text" />
+                type="text"
+                placeholder="Enter a new location"
+                />
                 <button 
                 onClick={() => setSearch(query)}
                 style={{display:"none"}}>Search</button>

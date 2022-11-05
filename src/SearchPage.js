@@ -43,7 +43,7 @@ function SearchPage({parentCallback}) {
                 onClick={() => setSearch(query)}
                 className='search_button'
                 type="submit"
-                 >Search</button>
+                 >SEARCH</button>
               </form>
                 
         </div>
