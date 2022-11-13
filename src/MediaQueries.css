@@ -124,8 +124,8 @@
         .forecast_text{
             margin: 0;
             font-size: 16px;
-            min-width: 92px;
-            max-width: 160px;
+            min-width: 80px;
+            max-width: 80px;
         }
         /*Search Page */
         .container > h1{
@@ -152,6 +152,9 @@
             width:100%;
             margin: 5px 0;
             padding: 0;
+        }
+        .city_name{
+            min-width: 67px;
         }
         .citycard > img {
             width: 50px;

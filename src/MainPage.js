@@ -49,7 +49,7 @@ useEffect(() => {
                   src={result.current.condition.icon} 
                   alt={result.current.condition.text}
                   className="logo_today" />
-                  <h1 className='temp'>{result.current.temp_c.toString() + "°"}</h1>
+                  <h1 className='temp'>{result.current.temp_c.toString() + "°C"}</h1>
               </div>
               <h2 className='text_today'>{result.current.condition.text}</h2>
             </div>

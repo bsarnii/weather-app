@@ -10,19 +10,19 @@ function Forecast({results}) {
        date="Today"
        imgSrc={results.forecast.forecastday[0].day.condition.icon}
        imgAlt={results.forecast.forecastday[0].day.condition.text} 
-       temp={results.forecast.forecastday[0].day.avgtemp_c + "°"}  
+       temp={results.forecast.forecastday[0].day.avgtemp_c + "°C"}  
        text={results.forecast.forecastday[0].day.condition.text} />
        <ForecastDay 
        date="Tomorrow"
        imgSrc={results.forecast.forecastday[1].day.condition.icon}
        imgAlt={results.forecast.forecastday[1].day.condition.text} 
-       temp={results.forecast.forecastday[1].day.avgtemp_c + "°"}  
+       temp={results.forecast.forecastday[1].day.avgtemp_c + "°C"}  
        text={results.forecast.forecastday[1].day.condition.text} />
        <ForecastDay 
        date={date3}
        imgSrc={results.forecast.forecastday[2].day.condition.icon}
        imgAlt={results.forecast.forecastday[2].day.condition.text} 
-       temp={results.forecast.forecastday[2].day.avgtemp_c + "°"}  
+       temp={results.forecast.forecastday[2].day.avgtemp_c + "°C"}  
        text={results.forecast.forecastday[2].day.condition.text} />
     </div>
   )

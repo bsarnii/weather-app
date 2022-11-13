@@ -6,7 +6,7 @@ function Citycard({name,img,temp,text}) {
     <div className='citycard'>
         <div className='city_name'>{name}</div>
         <img src={img} alt="img" />
-        <div className='citycard_temp'>{temp+"°"}</div>
+        <div className='citycard_temp'>{temp+"°C"}</div>
         <div className='citycard_text'>{text}</div>
     </div>
   )
