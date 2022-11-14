@@ -10,8 +10,8 @@ function SearchPage({parentCallback}) {
  const [berlin, setBerlin] = useState("")
  const [london, setLondon] = useState("");
  const [newyork,setNewyork] = useState("");
- const [ result, setResult] = useState("");
- const [ query, setQuery ] = useState("");
+ const [result, setResult] = useState("");
+ const [query, setQuery ] = useState("");
  
  useEffect(() => {
   //Berlin
@@ -81,7 +81,7 @@ function SearchPage({parentCallback}) {
                  >SEARCH</button>
               </form>
             <div className='citycard_container'>
-              {newyork === "" ? "" :
+              {berlin === "" || london === "" || newyork === "" ? <></> :
               <>
               <Citycard name="Berlin" img={berlin.current.condition.icon} temp={berlin.current.temp_c} text={berlin.current.condition.text}/>
               <Citycard name="London" img={london.current.condition.icon} temp={london.current.temp_c} text={london.current.condition.text}/>
