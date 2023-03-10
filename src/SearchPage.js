@@ -12,6 +12,8 @@ function SearchPage({parentCallback}) {
  const [newyork,setNewyork] = useState("");
  const [result, setResult] = useState("");
  const [query, setQuery ] = useState("");
+ const [suggestions, setSuggestions] = useState([]);
+ const [suggestion, setSuggestion] = useState("");
  
  useEffect(() => {
   //Berlin
@@ -47,6 +49,9 @@ function SearchPage({parentCallback}) {
    },[]);
    //Search for city
  const submitSearch = () => {
+  if (!query) {
+    return
+  }
   WeatherApi.get('/forecast.json',{
     params: {
       q: query,
@@ -57,8 +62,43 @@ function SearchPage({parentCallback}) {
     setResult(response.data);
    })
  }
+  //Make Suggestions
+  const makeSuggestion = (value) => {
+    if (!value | value.length < 2) {
+      return setSuggestions([])
+    }
+    WeatherApi.get('/search.json',{
+      params:{
+        q: value
+      }
+    })
+    .then(response => {
+      setSuggestions(response.data)
+    })
+  }
+  // If suggestion updated onClick, then fetch city
+  useEffect(()=>{
+    if (!suggestion){
+      return
+    }
+    WeatherApi.get('/forecast.json',{
+      params: {
+        q: suggestion,
+        days: 3  
+        }
+     })
+     .then(response => {
+      setResult(response.data);
+     })
+  },[suggestion])
 
-  parentCallback(result)
+  // updating the state on the parent component, whenever the state changes
+  useEffect(()=>{
+    if (!result){
+      return
+    }
+    parentCallback(result)
+  },[result,parentCallback])
 
   return (
     <div className='SearchPage'>
@@ -71,15 +111,20 @@ function SearchPage({parentCallback}) {
                     <input 
                     type="text"
                     onChange={e => setQuery(e.target.value)}
+                    onKeyUp={e => makeSuggestion(e.target.value)}
                     placeholder="Enter a city"
                     />
+                    <ul className='suggestions' style={suggestions.length > 0 ? {display:"block"} : {display:"none"}}>
+                      {suggestions.map(item => { return (
+                       <li onClick={()=> setSuggestion(item.url)} key={item.id}>{`${item.name}, ${item.country}`}</li> 
+                      )})}
+                    </ul>
                 </div>
-                <button 
-                onClick={submitSearch}
-                className='search_button'
-                type="submit"
-                 >SEARCH</button>
-              </form>
+                
+                { /*Show and hide button*/ suggestions.length < 1  ?
+                <button onClick={submitSearch} className='search_button' type="submit">SEARCH</button>
+                : <button style={{opacity: "0"}} onClick={submitSearch} className='search_button' type="submit">SEARCH</button>}
+                </form>
             <div className='citycard_container'>
               {berlin === "" || london === "" || newyork === "" ? <></> :
               <>

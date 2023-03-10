@@ -6,21 +6,58 @@ import Forecast from './Forecast';
 
 function MainPage({results}) {
 const [query, setQuery] = useState("");
-const [search, setSearch] = useState("");
 const [result, setResult] = useState(results);
+const [suggestions, setSuggestions] = useState([]);
+const [suggestion, setSuggestion] = useState("");
   
-useEffect(() => {
-  WeatherApi.get('/forecast.json',{
-     params: {
-       q: search,
-       days: 3  
-       }
+
+   const submitSearch = () => {
+    if (!query) {
+      return
+    }
+    WeatherApi.get('/forecast.json',{
+      params: {
+        q: query,
+        days: 3  
+        }
+     })
+     .then(response => {
+      setResult(response.data);
+      setSuggestions([])
+      setQuery("")
+     })
+   }
+     //Make Suggestions
+  const makeSuggestion = (value) => {
+    if (!value | value.length < 2) {
+      return setSuggestions([])
+    }
+    WeatherApi.get('/search.json',{
+      params:{
+        q: value
+      }
     })
     .then(response => {
-     setResult(response.data);
+      setSuggestions(response.data)
     })
- 
-   },[search]);
+  }
+    // If suggestion updated onClick, then fetch city
+    useEffect(()=>{
+      if (!suggestion){
+        return
+      }
+      WeatherApi.get('/forecast.json',{
+        params: {
+          q: suggestion,
+          days: 3  
+          }
+       })
+       .then(response => {
+        setResult(response.data);
+        setSuggestions([]);
+        setQuery("")
+       })
+    },[suggestion])
   return (
     <div className='MainPage'>
       <img className="fog" src="background.png" alt="fog"/>
@@ -31,11 +68,17 @@ useEffect(() => {
                 <Search />
                 <input 
                 onChange={e => setQuery(e.target.value)}
+                onKeyUp={e => makeSuggestion(e.target.value)}
                 type="text"
                 placeholder="Enter a new location"
                 />
+                <ul className='suggestions' style={query.length > 0 ? {display:"block"} : {display:"none"}}>
+                {suggestions.map(item => { return (
+                  <li onClick={()=> setSuggestion(item.url)} key={item.id}>{`${item.name}, ${item.country}`}</li> 
+                  )})}
+                </ul>
                 <button 
-                onClick={() => setSearch(query)}
+                onClick={submitSearch}
                 style={{display:"none"}}>Search</button>
               
             </div>
