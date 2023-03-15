@@ -100,6 +100,7 @@ function SearchPage({parentCallback}) {
     parentCallback(result)
   },[result,parentCallback])
 
+
   return (
     <div className='SearchPage'>
         <img className="fog" src="background.png" alt="fog"/>
@@ -115,9 +116,14 @@ function SearchPage({parentCallback}) {
                     placeholder="Enter a city"
                     />
                     <ul className='suggestions' style={suggestions.length > 0 ? {display:"block"} : {display:"none"}}>
-                      {suggestions.map(item => { return (
-                       <li onClick={()=> setSuggestion(item.url)} key={item.id}>{`${item.name}, ${item.country}`}</li> 
-                      )})}
+                      {suggestions.map((item) =>  (
+                       <li 
+                       onClick={()=> setSuggestion(item.url)} 
+                       key={item.id}
+                       ><button>
+                       {`${item.name}, ${item.country}`}
+                       </button></li> 
+                      ))}
                     </ul>
                 </div>
                 

@@ -73,9 +73,14 @@ const [suggestion, setSuggestion] = useState("");
                 placeholder="Enter a new location"
                 />
                 <ul className='suggestions' style={query.length > 0 ? {display:"block"} : {display:"none"}}>
-                {suggestions.map(item => { return (
-                  <li onClick={()=> setSuggestion(item.url)} key={item.id}>{`${item.name}, ${item.country}`}</li> 
-                  )})}
+                {suggestions.map(item =>  (
+                  <li 
+                  onClick={()=> setSuggestion(item.url)} 
+                  key={item.id}
+                  >
+                    <button>{`${item.name}, ${item.country}`}</button>
+                    </li> 
+                  ))}
                 </ul>
                 <button 
                 onClick={submitSearch}
