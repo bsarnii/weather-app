@@ -9,6 +9,7 @@ const [query, setQuery] = useState("");
 const [result, setResult] = useState(results);
 const [suggestions, setSuggestions] = useState([]);
 const [suggestion, setSuggestion] = useState("");
+const [requestSuccess, setRequestSuccess] = useState(true)
   
 
    const submitSearch = () => {
@@ -26,6 +27,10 @@ const [suggestion, setSuggestion] = useState("");
       setSuggestions([])
       setQuery("")
      })
+     .catch(function (){
+      setRequestSuccess(false)
+     })
+
    }
      //Make Suggestions
   const makeSuggestion = (value) => {
@@ -63,7 +68,11 @@ const [suggestion, setSuggestion] = useState("");
       <img className="fog" src="background.png" alt="fog"/>
         <div className='main_container'>
           <form onSubmit={e => e.preventDefault()}>
-            <div className='search_input_main'>
+          {!requestSuccess && <p style={{color: "rgb(255,0,0)",fontWeight: "bold"}}>Please enter a valid city name!</p>}
+            <div 
+            className='search_input_main'
+            style={{border: requestSuccess ? "1px solid rgba(250,250,250,.5)" : "1px solid rgb(255,0,0)"}}
+            >
               
                 <Search />
                 <input 

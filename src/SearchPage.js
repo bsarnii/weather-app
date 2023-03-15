@@ -14,6 +14,7 @@ function SearchPage({parentCallback}) {
  const [query, setQuery ] = useState("");
  const [suggestions, setSuggestions] = useState([]);
  const [suggestion, setSuggestion] = useState("");
+ const [requestSuccess, setRequestSuccess] = useState(true)
  
  useEffect(() => {
   //Berlin
@@ -60,6 +61,10 @@ function SearchPage({parentCallback}) {
    })
    .then(response => {
     setResult(response.data);
+    setRequestSuccess(true);
+   })
+   .catch(function (){
+    setRequestSuccess(false)
    })
  }
   //Make Suggestions
@@ -107,7 +112,11 @@ function SearchPage({parentCallback}) {
         <div className='container'>
             <h1>Weather app</h1>
               <form onSubmit={e => e.preventDefault()}>
-                <div className='search_input'>
+                {!requestSuccess && <p style={{color: "rgb(255,0,0)",fontWeight: "bold"}}>Please enter a valid city name!</p>}
+                <div 
+                className='search_input'
+                style={{border: requestSuccess ? "1px solid rgba(250,250,250,.5)" : "1px solid rgb(255,0,0)"}}
+                >
                     <Search />
                     <input 
                     type="text"
