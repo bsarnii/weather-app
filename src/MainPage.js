@@ -68,7 +68,7 @@ const [requestSuccess, setRequestSuccess] = useState(true)
       <img className="fog" src="background.png" alt="fog"/>
         <div className='main_container'>
           <form onSubmit={e => e.preventDefault()}>
-          {!requestSuccess && <p style={{color: "rgb(255,0,0)",fontWeight: "bold"}}>Please enter a valid city name!</p>}
+          {!requestSuccess && <p style={{color: "rgb(255,0,0)",fontWeight: "bold", textAlign:"center"}}>Please enter a valid city name!</p>}
             <div 
             className='search_input_main'
             style={{border: requestSuccess ? "1px solid rgba(250,250,250,.5)" : "1px solid rgb(255,0,0)"}}

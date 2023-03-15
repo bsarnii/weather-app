@@ -112,7 +112,7 @@ function SearchPage({parentCallback}) {
         <div className='container'>
             <h1>Weather app</h1>
               <form onSubmit={e => e.preventDefault()}>
-                {!requestSuccess && <p style={{color: "rgb(255,0,0)",fontWeight: "bold"}}>Please enter a valid city name!</p>}
+                {!requestSuccess && <p style={{color: "rgb(255,0,0)",fontWeight: "bold", textAlign:"center"}}>Please enter a valid city name!</p>}
                 <div 
                 className='search_input'
                 style={{border: requestSuccess ? "1px solid rgba(250,250,250,.5)" : "1px solid rgb(255,0,0)"}}
