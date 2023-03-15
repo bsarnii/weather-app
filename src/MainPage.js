@@ -26,6 +26,7 @@ const [requestSuccess, setRequestSuccess] = useState(true)
       setResult(response.data);
       setSuggestions([])
       setQuery("")
+      setRequestSuccess(true)
      })
      .catch(function (){
       setRequestSuccess(false)
@@ -61,6 +62,7 @@ const [requestSuccess, setRequestSuccess] = useState(true)
         setResult(response.data);
         setSuggestions([]);
         setQuery("")
+        setRequestSuccess(true)
        })
     },[suggestion])
   return (
